@@ -100,16 +100,20 @@ Tweet Styles
 ---------------------------
 */
 
-.feed .tweet {
-	margin: 8px;
+.tweet {
+	margin: 12px 0px;
 	padding: 5px;
 	border-bottom: 1px solid grey;
 }
 
-.feed .username {
+.tweet h3, .tweet p {
+	margin: 2px;
+}
+
+.tweetUsername {
 	font-weight: 500;
 }
 
-.feed .tweetTimeStamp {
+.tweetTimeStamp {
 	font-size: 66%;
 }

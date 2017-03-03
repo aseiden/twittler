@@ -15,14 +15,6 @@
 
       <section class="feed">
         
-        <article class="tweet">
-
-          <h3 class="username">@dummyName</h3>
-          <p class="tweetText">Dummy text goes right here!  Goes right here!</p>
-          <p class="tweetTimeStamp">Time stamp here</p>
-
-        </article>
-
       </section>
     </section>
 
@@ -35,8 +27,16 @@
         var index = streams.home.length - 1;
         while(index >= 0){
           var tweet = streams.home[index];
-          var $tweet = $('<article></article>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
+          var $tweet = $('<article class="tweet"></article>');
+          var $tweetUsername = $('<h3 class="tweetUsername"></h3>');
+          var $tweetText = $('<p class="tweetText"></p>');
+          var $tweetTimeStamp = $('<p class="tweetTimeStamp"></p>');
+          $tweetUsername.text('@' + tweet.user);
+          $tweetText.text(tweet.message);
+          $tweetTimeStamp.text(tweet.created_at);
+          $tweetUsername.appendTo($tweet);
+          $tweetText.appendTo($tweet);
+          $tweetTimeStamp.appendTo($tweet);
           $tweet.appendTo($feed);
           index -= 1;
         }
