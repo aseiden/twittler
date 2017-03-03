@@ -54,7 +54,7 @@ Body Styles
 */
 
 .holding {
-	width: 800px;
+	width: 600px;
 	margin: 0 auto;
 }
 
@@ -92,4 +92,24 @@ Feed Styles
 .feed article {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-weight: 300;
+}
+
+/* 
+---------------------------
+Tweet Styles
+---------------------------
+*/
+
+.feed .tweet {
+	margin: 8px;
+	padding: 5px;
+	border-bottom: 1px solid grey;
+}
+
+.feed .username {
+	font-weight: 500;
+}
+
+.feed .tweetTimeStamp {
+	font-size: 66%;
 }
