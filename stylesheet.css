@@ -47,3 +47,49 @@ table {
 	border-spacing: 0;
 }
 
+/* 
+---------------------------
+Body Styles
+---------------------------
+*/
+
+.holding {
+	width: 800px;
+	margin: 0 auto;
+}
+
+/* 
+---------------------------
+Header Styles
+---------------------------
+*/
+
+header h1 {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 100px;
+	font-weight: 100;
+	text-align: center;
+	border-bottom: 1px solid grey;
+}
+
+header .userFocus {
+	font-size: 25px;
+	text-align: center;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	margin: 10px 20px;
+}
+
+/* 
+---------------------------
+Feed Styles
+---------------------------
+*/
+
+.feed {
+	margin: 10px 20px;
+}
+
+.feed article {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 300;
+}
