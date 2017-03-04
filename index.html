@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Twittler!</title>
+    <title>Twittler</title>
     <link href="stylesheet.css" rel="stylesheet">
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
@@ -42,17 +42,15 @@
             $tweetUsername.appendTo($tweet);
             $tweetText.appendTo($tweet);
             $tweetTimeStamp.appendTo($tweet);
-            $tweet.appendTo($feed);
+            if (feedIsFiltered && $('.userFocus var').text() === tweet.user) {
+              console.log($('.userFocus var').text() + ' and ' + tweet.user)
+              $tweet.appendTo($feed);
+            } else if (!feedIsFiltered) {
+              $tweet.appendTo($feed);
+            }
             index -= 1;
           }
         };
-
-        // function checkForNewTweets() {
-        //   if (streams.home.length > lengthOfCurrentFeed) {
-        //     lengthOfCurrentFeed = streams.home.length;
-        //     getTweets();
-        //   }
-        // }
 
         $('body').on('click', '.tweetUsername', function() {
           var targetUser = '.' + $(this).text().slice(1);
@@ -63,8 +61,8 @@
             feedIsFiltered = true;
             $('.userFocus var').text(targetUser.slice(1));
           } else {
-            $('.tweet').show();
             feedIsFiltered = false;
+            getTweets();
             $('.userFocus var').text('everyone');
           }
 
@@ -73,7 +71,6 @@
         $('body').on('click', '.userFocus', getTweets)
         
         getTweets();
-        // setInterval(checkForNewTweets, 250);
       });
 
     </script>
