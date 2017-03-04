@@ -23,24 +23,43 @@
       $(document).ready(function(){
         var $feed = $('.feed');
         // $body.html('');
+        var feedIsFiltered = false;
 
-        var index = streams.home.length - 1;
-        while(index >= 0){
-          var tweet = streams.home[index];
-          var $tweet = $('<article class="tweet"></article>');
-          var $tweetUsername = $('<h3 class="tweetUsername"></h3>');
-          var $tweetText = $('<p class="tweetText"></p>');
-          var $tweetTimeStamp = $('<p class="tweetTimeStamp"></p>');
-          $tweetUsername.text('@' + tweet.user);
-          $tweetText.text(tweet.message);
-          $tweetTimeStamp.text(tweet.created_at);
-          $tweetUsername.appendTo($tweet);
-          $tweetText.appendTo($tweet);
-          $tweetTimeStamp.appendTo($tweet);
-          $tweet.appendTo($feed);
-          index -= 1;
-        }
+        function getTweets() {
+          var index = streams.home.length - 1;
+          while(index >= 0){
+            var tweet = streams.home[index];
+            var $tweet = $('<article class="tweet"></article>');
+            var $tweetUsername = $('<h3 class="tweetUsername"></h3>');
+            var $tweetText = $('<p class="tweetText"></p>');
+            var $tweetTimeStamp = $('<p class="tweetTimeStamp"></p>');
+            $tweet.addClass(tweet.user);
+            $tweetUsername.text('@' + tweet.user);
+            $tweetText.text(tweet.message);
+            $tweetTimeStamp.text(tweet.created_at);
+            $tweetUsername.appendTo($tweet);
+            $tweetText.appendTo($tweet);
+            $tweetTimeStamp.appendTo($tweet);
+            $tweet.appendTo($feed);
+            index -= 1;
+          }
+        };
 
+        $('body').on('click', '.tweetUsername', function() {
+          var targetUser = '.' + $(this).text().slice(1);
+
+          if (!feedIsFiltered) {
+            $('.tweet').hide();
+            $('.tweet').filter(targetUser).show();
+            feedIsFiltered = true;
+          } else {
+            $('.tweet').show();
+            feedIsFiltered = false;
+          }
+
+        });
+
+        getTweets();
       });
 
     </script>
