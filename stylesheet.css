@@ -64,10 +64,13 @@ Header Styles
 ---------------------------
 */
 
+header {
+	font-weight: 100;
+}
+
 header h1 {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 100px;
-	font-weight: 100;
 	text-align: center;
 	border-bottom: 1px solid grey;
 }
@@ -77,6 +80,7 @@ header .userFocus {
 	text-align: center;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	margin: 10px 20px;
+	cursor: pointer;
 }
 
 /* 
@@ -112,6 +116,7 @@ Tweet Styles
 
 .tweetUsername {
 	font-weight: 500;
+	cursor: pointer;
 }
 
 .tweetTimeStamp {

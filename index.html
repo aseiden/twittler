@@ -10,7 +10,7 @@
     <section class="holding">
       <header>
         <h1>Twittler</h1>
-        <h3 class="userFocus">@everyone</h3>
+        <h3 class="userFocus">Get more from @<var>everyone</var></h3>
       </header>
 
       <section class="feed">
@@ -24,9 +24,11 @@
         var $feed = $('.feed');
         // $body.html('');
         var feedIsFiltered = false;
+        var lengthOfCurrentFeed = streams.home.length;
 
         function getTweets() {
           var index = streams.home.length - 1;
+          $('.tweet').remove();
           while(index >= 0){
             var tweet = streams.home[index];
             var $tweet = $('<article class="tweet"></article>');
@@ -45,6 +47,13 @@
           }
         };
 
+        // function checkForNewTweets() {
+        //   if (streams.home.length > lengthOfCurrentFeed) {
+        //     lengthOfCurrentFeed = streams.home.length;
+        //     getTweets();
+        //   }
+        // }
+
         $('body').on('click', '.tweetUsername', function() {
           var targetUser = '.' + $(this).text().slice(1);
 
@@ -52,14 +61,19 @@
             $('.tweet').hide();
             $('.tweet').filter(targetUser).show();
             feedIsFiltered = true;
+            $('.userFocus var').text(targetUser.slice(1));
           } else {
             $('.tweet').show();
             feedIsFiltered = false;
+            $('.userFocus var').text('everyone');
           }
 
         });
 
+        $('body').on('click', '.userFocus', getTweets)
+        
         getTweets();
+        // setInterval(checkForNewTweets, 250);
       });
 
     </script>
